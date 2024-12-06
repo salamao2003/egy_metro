@@ -17,7 +17,11 @@ class LoginPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: [ Image.asset(
+            'assets/Cairo_metro_logo.png',
+            height: 100,
+            ),
+            SizedBox(height: 50,),
             Text(
               "Login",
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
@@ -54,7 +58,9 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // TODO: Add Login Logic
+                context.read<AuthLogicCubit>().onLoginButtonPressed(
+                    emailController.text,
+                    passwordController.text,);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
